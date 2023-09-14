@@ -54,6 +54,16 @@ func (c *PIDController) SetPID(p, i, d float64) *PIDController {
 	return c
 }
 
+// Reset the controller
+func (c* PIDController) ResetPID() *PIDController {
+    c.lastUpdate = time.Now()
+    c.preValue = 0.
+    c.integral = 0.
+    c.outMin = 0.
+    c.outMax = 0.
+    return c
+}
+
 // PID returns the P, I, and D constants
 func (c *PIDController) PID() (p, i, d float64) {
 	return c.p, c.i, c.d
