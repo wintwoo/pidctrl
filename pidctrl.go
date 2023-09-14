@@ -57,7 +57,7 @@ func (c *PIDController) SetPID(p, i, d float64) *PIDController {
 // Reset the controller
 func (c* PIDController) ResetPID() *PIDController {
     c.lastUpdate = time.Now()
-    c.preValue = 0.
+    c.prevValue = 0.
     c.integral = 0.
     c.outMin = 0.
     c.outMax = 0.
